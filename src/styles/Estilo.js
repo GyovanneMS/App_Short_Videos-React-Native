@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 import Conteudo from "../components/Conteudo";
+import Navegador from "../components/Navegador";
 
 export default StyleSheet.create({
     tela: {
@@ -38,4 +39,32 @@ export default StyleSheet.create({
         fontSize: 12,
         opacity: 0.6,
     },
+    navegador: {
+        bottom: 0,
+        flexDirection: "row",
+        justifyContent: "space-around",
+        paddingVertical: 64,
+        position: "absolute",
+        width: "100%",
+        zIndex: 999,
+    },
+    navegadorIcone: {
+        height: 32,
+        width: 32
+    },
+    telaMensagem: {
+        alignItems: "center",
+        height: Dimensions.get("screen").height,
+        justifyContent: "center",
+        width: "auto"
+    },
+    telaMensagemTexto: {
+        color: "#FFF",
+        fontSize: 32,
+    },
+    botao: {
+        backgroundColor: "#222",
+        marginHorizontal: 16,
+        padding: 8,
+    }
 })

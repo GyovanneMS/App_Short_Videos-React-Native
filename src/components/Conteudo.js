@@ -8,6 +8,29 @@ import ObterVideoCurtido from "../functions/ObterVideoCurtido";
 import LimparVideoCurtido from "../functions/LimparVideoCurtido";
 //PARAMOS AQUI
 export default function Conteudo(props) {
+
+
+    const [estado, definirEstado] = useState(true)
+    const [curtido, definirCurtido] = useState(false)
+
+    function Curtir(){
+        if(curtido)
+            LimparVideoCurtido(props.codigo);
+        else 
+            SalvarVideoCurto(props.codigo)
+        definirCurtido(!curtido)
+    }
+
+    useEffect(function() {
+        async function obterCurtidas() {
+            const lista = await ObterVideoCurtido()
+
+            if(lista.includes(props.codigo))
+                definirCurtido(true);
+        }
+        obterCurtidas()
+    }, [])
+
     return <View>
         <LinearGradient style={Estilo.conteudoBarra} color={["#000", "yellow", "purple", "transparent"]}>
             <View style={Estilo.conteudoBarraDentro}>
@@ -17,19 +40,26 @@ export default function Conteudo(props) {
             </View>
 
             <View>
-                <Pressable>
-                    <Image source={ require("../../assets/heart.png")}/>
+                <Pressable
+                    onPress={ Curtir}>
+                    {
+                        curtido ?
+                            <Image source={ require("../../assets/heart-fill.png")}/>
+                        :
+                            <Image source={ require("../../assets/heart.png")}/>
+                    }
                 </Pressable>
             </View>
             
         </LinearGradient>
-        <Pressable>
+        <Pressable
+            onPress={ () => definirEstado(!estado)}>
             <Video
                 style={Estilo.video}
                 source={props.fonte}
                 resizeMode={ResizeMode.COVER}
                 useNativeControls={false}
-                shouldPlay={true}
+                shouldPlay={estado}
                 isLooping
                 isMuted/>
         </Pressable>
