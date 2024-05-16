@@ -46,7 +46,7 @@ export default function Search({navigation}){
 
                             <Pressable onPress={TrazerResultados}>
                                 <View style={Estilo.botao}>
-                                    <Image style={Estilo.navegadorIcone} source={ require("../../assets/magnifying-glass.png")} />
+                                    <Image style={Estilo.navegadorIcone} source={ require("../../assets/magnifying.png")} />
                                 </View>
                             </Pressable>
                     </View>

@@ -4,12 +4,12 @@ import Navegador from "../components/Navegador";
 
 export default StyleSheet.create({
     tela: {
-        backgroundColor: "#000",
+        backgroundColor: "#000000",
         flex: 1,
     },
     video:{
         height: Dimensions.get("screen").height,
-        width: Dimensions.get("secreen").width,
+        width: Dimensions.get("screen").width,
     },
     conteudoBarra: {
         gap: 32,

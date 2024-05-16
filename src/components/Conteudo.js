@@ -32,7 +32,7 @@ export default function Conteudo(props) {
     }, [])
 
     return <View>
-        <LinearGradient style={Estilo.conteudoBarra} color={["#000", "yellow", "purple", "transparent"]}>
+        <LinearGradient style={Estilo.conteudoBarra} colors={["#000","transparent"]}>
             <View style={Estilo.conteudoBarraDentro}>
                 <Text style={Estilo.conteudoTitulo}> {props.nome} </Text>
                 <Text style={Estilo.conteudoDescricao}> {props.descricao} </Text>

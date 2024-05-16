@@ -6,7 +6,7 @@ import Estilo from "../styles/Estilo";
 export default function Navegador(props) {
     
     
-    return<LinearGradient style={Estilo.navegador}>
+    return<LinearGradient style={Estilo.navegador} colors={["transparent", "#000000"]}>
         <Pressable onPress={() => props.navigation.navigate("Home")}>
             <Image source={ require("../../assets/house.png")} style={Estilo.navegadorIcone}/>
         </Pressable>
